@@ -1,7 +1,7 @@
 var elUlList = document.getElementById("uList");
 var btn = document.getElementById("btn");
 const elInput = document.getElementById("input");
-const footer = document.querySelector("footer")
+const footer = document.querySelector("footer");
 
 function createListItems() {
 
@@ -19,6 +19,12 @@ function createListItems() {
 function emptyField() {
   this.value = "";
 }
+
+elUlList.addEventListener("dblclick", function(e){
+  var target = e.target;
+  var parent = target.parentNode;
+  parent.removeChild(target)
+});
 
 btn.addEventListener("click", createListItems, false)
 elInput.addEventListener("mouseover", emptyField, false)
