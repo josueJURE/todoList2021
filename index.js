@@ -1,9 +1,7 @@
 var elUlList = document.getElementById("uList");
 var btn = document.getElementById("btn");
 const elInput = document.getElementById("input");
-
-
-console.log(elUlList)
+const footer = document.querySelector("footer")
 
 function createListItems() {
 
@@ -24,3 +22,8 @@ function emptyField() {
 
 btn.addEventListener("click", createListItems, false)
 elInput.addEventListener("mouseover", emptyField, false)
+
+var date = new Date().toLocaleDateString("en-US")
+
+footer.innerHTML = date
+console.log(date)
