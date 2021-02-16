@@ -2,6 +2,7 @@ var elUlList = document.getElementById("uList");
 var btn = document.getElementById("btn");
 const elInput = document.getElementById("input");
 const footer = document.querySelector("footer");
+const message = document.getElementById("message");
 
 function createListItems() {
 
@@ -10,6 +11,10 @@ function createListItems() {
   var newText = document.createTextNode(inputValue);
   newLi.appendChild(newText);
   elUlList.appendChild(newLi);
+  if(inputValue === "") {
+    message.innerHTML = "field can't be left empty"
+
+  }
   inputValue = ""
   var elCounter = document.getElementById("counter");
   var counter = document.querySelectorAll("li");
@@ -25,6 +30,13 @@ elUlList.addEventListener("dblclick", function(e){
   var parent = target.parentNode;
   parent.removeChild(target)
 });
+
+elUlList.addEventListener("click", function(e){
+  var child = e.target;
+  var container = child.parentNode;
+  container.setAttribute("class", "lineThrough");
+
+})
 
 btn.addEventListener("click", createListItems, false)
 elInput.addEventListener("mouseover", emptyField, false)
