@@ -32,9 +32,14 @@ elUlList.addEventListener("dblclick", function(e){
 });
 
 elUlList.addEventListener("click", function(e){
+
+  var elements = document.getElementsByTagName("li");
   var child = e.target;
-  var container = child.parentNode;
-  container.setAttribute("class", "lineThrough");
+  for(var i = 0; i < elements.length; i++) {
+    if(elements[i] === child) {
+      elements[i].setAttribute("class", "lineThrough")
+    }
+  }
 
 })
 
