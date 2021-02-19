@@ -35,10 +35,10 @@ elUlList.addEventListener("click", function(e){
   if(elements.length >= 1){
     for(var i = 0; i < elements.length; i++) {
       if(elements[i] === child) {
-        elements[i].setAttribute("class", "lineThrough").toggle
-      }
+        elements[i].classList.toggle("lineThrough");
     }
   }
+}
 })
 
 btn.addEventListener("click", createListItems, false)
