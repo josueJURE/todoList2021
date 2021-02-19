@@ -5,7 +5,6 @@ const footer = document.querySelector("footer");
 const message = document.getElementById("message");
 
 function createListItems() {
-
   var inputValue = elInput.value;
   var newLi = document.createElement("li");
   var newText = document.createTextNode(inputValue);
@@ -13,7 +12,6 @@ function createListItems() {
   elUlList.appendChild(newLi);
   if(inputValue === "") {
     message.innerHTML = "field can't be left empty"
-
   }
   inputValue = ""
   var elCounter = document.getElementById("counter");
@@ -32,15 +30,15 @@ elUlList.addEventListener("dblclick", function(e){
 });
 
 elUlList.addEventListener("click", function(e){
-
   var elements = document.getElementsByTagName("li");
   var child = e.target;
-  for(var i = 0; i < elements.length; i++) {
-    if(elements[i] === child) {
-      elements[i].setAttribute("class", "lineThrough")
+  if(elements.length >= 1){
+    for(var i = 0; i < elements.length; i++) {
+      if(elements[i] === child) {
+        elements[i].setAttribute("class", "lineThrough").toggle
+      }
     }
   }
-
 })
 
 btn.addEventListener("click", createListItems, false)
