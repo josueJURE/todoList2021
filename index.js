@@ -16,20 +16,17 @@ function createListItems() {
   inputValue = ""
   var elCounter = document.getElementById("counter");
   var counter = document.querySelectorAll("li");
-  elCounter.innerHTML = counter.length;
+  elCounter.innerHTML =+ counter.length;
 }
-
 function emptyField() {
   this.value = "";
 }
-
 elUlList.addEventListener("dblclick", function(e){
   var target = e.target;
   var parent = target.parentNode;
   alert("are you sure you want to remove this item from the list")
   parent.removeChild(target)
 });
-
 elUlList.addEventListener("click", function(e){
   var elements = document.getElementsByTagName("li");
   var child = e.target;
@@ -42,7 +39,16 @@ elUlList.addEventListener("click", function(e){
 }
 })
 
-btn.addEventListener("click", createListItems, false)
+btn.addEventListener("click", createListItems, false);
+elInput.addEventListener("keyup", function(e) {
+  if(e.keyCode === 13) {
+    e.preventDefault();
+    btn.click()
+  }
+})
+
+
+
 elInput.addEventListener("mouseover", emptyField, false)
 
 var date = new Date().toLocaleDateString("en-US")
