@@ -32,14 +32,13 @@ elUlList.addEventListener("click", function(e){
   var child = e.target;
   if(elements.length >= 1){
     for(var i = 0; i < elements.length; i++) {
-      if(elements[i] === child) {
-        elements[i].classList.toggle("lineThrough");
-    }
+      elements[i] === child ? elements[i].classList.toggle("lineThrough"):null;
   }
 }
 })
 
 btn.addEventListener("click", createListItems, false);
+
 elInput.addEventListener("keyup", function(e) {
   if(e.keyCode === 13) {
     e.preventDefault();
