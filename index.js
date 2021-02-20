@@ -26,6 +26,7 @@ function emptyField() {
 elUlList.addEventListener("dblclick", function(e){
   var target = e.target;
   var parent = target.parentNode;
+  alert("are you sure you want to remove this item from the list")
   parent.removeChild(target)
 });
 
