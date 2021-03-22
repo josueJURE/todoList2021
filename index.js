@@ -58,16 +58,15 @@ elUlList.addEventListener("dblclick", function(e){
   elCounter.innerHTML =+ elements.length;
 });
 
-elUlList.addEventListener("click", function(e){
-  var elements = document.getElementsByTagName("li");
-  var child = e.target;
-  if(elements.length >= 1){
-    var elCounter = document.getElementById("counter");
-    for(var i = 0; i < elements.length; i++) {
-      elements[i] === child ? elements[i].classList.toggle("lineThrough"):null;
+const strikeOutCheckedItem = ({target}) => {
+  if(target.matches("input[type=checkbox]")) {
+    target.closest("li").classList.toggle("lineThrough", target.checked)
   }
 }
-})
+
+elUlList.addEventListener("click", strikeOutCheckedItem, false)
+
+
 
 // checkboxes.forEach(function(checkbox) {
 //   checkbox.addEventListener('change', function() {
