@@ -11,6 +11,7 @@ const elCounter = document.getElementById("counter");
 function createListItems() {
   var elements = document.getElementsByTagName("li");
   var inputValue = elInput.value;
+  if(inputValue === "" || inputValue === null) return
   var newLi = document.createElement("li");
   var input = document.createElement("input");
   input.type = "checkbox";
@@ -18,10 +19,7 @@ function createListItems() {
   newLi.appendChild(input);
   newLi.appendChild(newText);
   elUlList.appendChild(newLi);
-    if(inputValue === "") {
-      message.innerHTML = "field can't be left empty"
-    }
-    inputValue = ""
+
 
     elCounter.innerHTML =+ elements.length;
   }
